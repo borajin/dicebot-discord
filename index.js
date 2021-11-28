@@ -1,4 +1,4 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, MessageEmbed } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 const lodash = require('lodash');
 
@@ -44,7 +44,10 @@ client.on("message", function (message) {
     if (sign == '<') successText = sum <= number ? "success" : "fail";
     else if (sign == '>') successText = sum >= number ? "success" : "fail";
 
-    message.reply(`(${result.join('+')})\n= ${sum} ${successText} ${text}`);
+
+    const embed = new MessageEmbed().setColor('#00ffff').setTitle(message.content).setDescription(`(${result.join('+')})\n= ${sum} ${successText} ${text}`)
+
+    message.channel.send(embed);
 
 });
 
