@@ -41,5 +41,5 @@ client.on("message", function (message) {
     message.reply(`(${result.join('+')})\n= ${sum} ${successText} ${text}`);
 });
 
-
+client.user.setActivity('/r 2d6<10 처럼 사용하세요!!');
 client.login(process.env.BOT_TOKEN);
