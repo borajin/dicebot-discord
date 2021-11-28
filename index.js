@@ -4,7 +4,13 @@ const lodash = require('lodash');
 
 
 const prefix = `/r `;
+
+client.on('ready', () => {
+    client.user.setActivity('/r 2d6<10 처럼 사용하세요!!', { type: 'WATCHING' });
+})
+
 client.on("message", function (message) {
+
     // message 작성자가 봇이면 그냥 return
     if (message.author.bot) return;
     // message 시작이 prefix가 아니면 return
@@ -39,7 +45,7 @@ client.on("message", function (message) {
     else if (sign == '>') successText = sum >= number ? "success" : "fail";
 
     message.reply(`(${result.join('+')})\n= ${sum} ${successText} ${text}`);
+
 });
 
-client.user.setActivity('/r 2d6<10 처럼 사용하세요!!');
 client.login(process.env.BOT_TOKEN);
