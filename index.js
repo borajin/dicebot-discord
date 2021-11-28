@@ -47,7 +47,7 @@ client.on("message", function (message) {
 
     const embed = new MessageEmbed().setColor('#00ffff').setTitle(message.content).setDescription(`(${result.join('+')})\n= ${sum} ${successText} ${text}`)
 
-    message.channel.send(embed);
+    message.channel.send({ embeds: [embed] });
 
 });
 
