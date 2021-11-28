@@ -45,7 +45,8 @@ client.on("message", function (message) {
     else if (sign == '>') successText = sum >= number ? "success" : "fail";
 
 
-    const embed = new MessageEmbed().setColor('#00ffff').setTitle(message.content).setDescription(`(${result.join('+')})\n= ${sum} ${successText} ${text}`).setAuthor(message.author.username, message.author.displayAvatarURL())
+    let colorCode = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+    const embed = new MessageEmbed().setColor(colorCode).setTitle(message.content).setDescription(`(${result.join('+')})\n= ${sum} ${successText} ${text}`).setAuthor(message.author.username, message.author.displayAvatarURL())
 
     message.channel.send({ embeds: [embed] });
 
