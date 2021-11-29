@@ -1,10 +1,13 @@
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 const lodash = require('lodash');
-const mathjs = require('mathjs');
-
 
 const prefix = `/r `;
+
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 client.on('ready', () => {
     client.user.setActivity('/r 2d6<10 처럼 사용하세요!!', { type: 'WATCHING' });
@@ -35,7 +38,7 @@ client.on("message", function (message) {
     let successText = '';
 
     for (let i = 0; i < parseInt(diceArgs[0] == '' ? '1' : diceArgs[0]); i++) {
-        const rand = mathjs.randomInt(1, 3);
+        const rand = randomInt(1, 3);
         result.push(rand);
     }
 
@@ -45,7 +48,7 @@ client.on("message", function (message) {
     else if (sign == '>') successText = sum >= number ? "success" : "fail";
 
 
-    let colorCode = "#" + Math.round(mathjs.random() * 0xffffff).toString(16);
+    let colorCode = "#" + Math.round(Math.random() * 0xffffff).toString(16);
     const embed = new MessageEmbed().setColor(colorCode).setTitle(message.content).setDescription(`(${result.join('+')})\n= ${sum} ${successText}`).setAuthor(message.author.username, message.author.displayAvatarURL())
 
     message.channel.send({ embeds: [embed] });
