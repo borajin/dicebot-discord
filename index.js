@@ -1,7 +1,7 @@
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 const lodash = require('lodash');
-const mathjs = require('math.js');
+const mathjs = require('mathjs');
 
 
 const prefix = `/r `;
