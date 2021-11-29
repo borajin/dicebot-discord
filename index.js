@@ -35,7 +35,7 @@ client.on("message", function (message) {
     let successText = '';
 
     for (let i = 0; i < parseInt(diceArgs[0] == '' ? '1' : diceArgs[0]); i++) {
-        const rand = mathjs.random(1, 3);
+        const rand = mathjs.randomInt(1, 3);
         result.push(rand);
     }
 
