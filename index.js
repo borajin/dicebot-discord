@@ -35,7 +35,7 @@ client.on("message", function (message) {
   //수식과 텍스트 분리
   const command = message.content.slice(prefix.length).replace(" ", "").trim();
 
-  if (command.match(/<|>/g).length <= 1) {
+  if (command.match(/<|>/g) === null || command.match(/<|>/g)?.length === 1) {
     const commandArgs = command.split(/<|>/);
 
     if (
