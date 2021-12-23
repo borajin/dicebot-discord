@@ -10,7 +10,7 @@ const solveDexp = (dExp) => {
   const args = dExp.split(/d/i);
   const results = [];
 
-  for (let i = 0; i < Number(args[0]); i++) {
+  for (let i = 0; i < Number(args[0] === "" ? 1 : args[0]); i++) {
     const rand = randomInt(1, Number(args[1]));
     results.push(rand);
   }
@@ -35,7 +35,7 @@ client.on("message", function (message) {
   //수식과 텍스트 분리
   const command = message.content.slice(prefix.length).replace(" ", "").trim();
 
-  if (command.match(/<|>/g).length === 1) {
+  if (command.match(/<|>/g).length <= 1) {
     const commandArgs = command.split(/<|>/);
 
     if (
